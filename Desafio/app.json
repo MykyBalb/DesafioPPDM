@@ -1,7 +1,15 @@
 {
   "expo": {
-    "name": "Desafio",
-    "slug": "Desafio",
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
+        }
+      ]
+    ],
+    "name": "Camera",
+    "slug": "Camera",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

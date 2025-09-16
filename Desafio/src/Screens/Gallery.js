@@ -9,7 +9,7 @@ export default function Gallery() {
     <SafeAreaView style={styles.container}>
       {gallery.length === 0 ? (
         <View style={styles.emptyContainer}>
-          <Text style={styles.emptyText}>Nenhuma foto ainda 📷</Text>
+          <Text style={styles.emptyText}>Nenhuma foto ainda</Text>
         </View>
       ) : (
         <FlatList

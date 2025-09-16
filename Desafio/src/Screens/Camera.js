@@ -30,13 +30,16 @@ export default function CameraScreen() {
     return await Location.getCurrentPositionAsync({});
   }
 
+  //guardar apenas latitude e longitude e requisitar a localização depois
   async function takePicture() {
     if (!cameraRef.current) return;
     const photo = await cameraRef.current.takePictureAsync({
-      quality: 0.5,
+      quality: 1,
       skipProcessing: true,
     });
-    const loc = await getCurrentLocation();
+    console.log('Taking picture...', photo);
+    
+    const loc = getCurrentLocation();
     if (!loc) return;
     setLocation(loc);
 
@@ -62,14 +65,14 @@ export default function CameraScreen() {
     };
 
     const locationName = await getLocationName();
+    console.log("aoba")
 
     setGallery((prevPhotos) => [
       ...prevPhotos,
       {
         uri: photo.uri,
-        city: locationName.address.city_district,
-        municipality: locationName.address.municipality,
-        state: locationName.address.state,
+        latitude: latitude,
+        longitude: longitude,
       },
     ]);
     console.log(gallery);
